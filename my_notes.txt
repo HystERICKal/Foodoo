@@ -1,0 +1,37 @@
+AUTH MODULE NOTES (DIAGRAM PROVIDED as 'Lucid_APP_Flow diagram_architecture for_Auth Module')
+
+Domain layer
+-Token based authentication
+-IAuthService abstraction 
+
+Adapters
+-This will have all the third party apps
+
+Use Cases
+-Represents our business rules/Application logic
+
+API
+-Represents all the endpoints that we will need to call in order to authenticate users to the backend
+
+
+TO create the auth module, use the command below on the terminal...
+-flutter create --template=package auth
+
+Then inside the lib folder in the new auth module create a source folder and a domain folder inside it,
+Then create inside the domain folder...
+credentials.dart - defines name email and password and authentication type
+token.dart - token based authentication for the token that will be returned when user is authenticated
+auth_service_contract.dart - Our abstraction. Our interface.
+signup_service_contract.dart - interface aggregation method this is created as its own interface
+
+Create a folder called 'usecases' inside source (src) folder
+-signin_usecase.dart - uses IAuthService to sign in
+-signup_usecase.dart
+
+Create a folder called 'infra' (Infrastructure)
+-Create a folder called 'adapters' inside 'infra'
+    -email_auth.dart - 
+    -google_auth.dart - in pubspec.yaml, change description to 'Authentication module' and
+        use 'pubspec assist' to look for 'google sign in' and install it (add as dependency)
+-Create a folder called 'api' inside 'infra'
+    -auth_api_contract.dart
