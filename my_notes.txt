@@ -35,3 +35,65 @@ Create a folder called 'infra' (Infrastructure)
         use 'pubspec assist' to look for 'google sign in' and install it (add as dependency)
 -Create a folder called 'api' inside 'infra'
     -auth_api_contract.dart
+
+
+Use Http client to handle our requests to those backend endpoints
+GO to pubspec.yaml and use pubspec assist to install 'http' and 'mockito'
+'mockito' - for creating mock objects
+Once 'mockito' is installed, cut it and move (paste) it in the 'dev dependencies' section
+
+Now create 'auth_api.dart' file inside 'api' folder and work on it
+Then create a 'mapper.dart' file inside 'api' folder and work on it
+
+Testing api calls to ensure they are executing as expected
+Inside the test folder create 'Infra' folder
+-Inside 'Infra' foler, create 'api' folder
+    -Inside 'api' folder, create an 'auth_api_test.dart' file
+    -Inside this file type 'ftest' and intellisense will suggest a whole code setup to start with
+
+
+
+#########################################################################################################################
+
+
+BACKEND
+
+Here node.js, typescript and MongoDB will be used
+install node.js from nodejs.org
+install typescript using the CLI 'npm install -g typescript'
+create an empty folder 'foodoo_backend'
+run 'npm init' inside cmd in the directory of the new folder
+
+Now run 'npm i -D typescript ts-node mocha chai'
+npm -node package manager
+D - dev dependency
+mocha - testing framework
+chai - assertion framework
+
+Now create source folder 'src' for the development artifacts
+
+Configure test script inside 'package.json'
+-whenever the test script is run, it will run the set of tests in the application
+-Mocha -testing framework 
+-watch for typescript extensions
+-test files will be in 'test/**/*...' and will end in '.spec.ts'
+-timeout of 5 seconds
+
+Now initialise the typescript compiler to generate that typescript config file
+-run 'tsc init'
+-if there is an error, open cmd as admin and run 'powershell Set-ExecutionPolicy RemoteSigned'
+
+Now inside 'tsconfig.json' uncomment 'lib' and change it to "lib": ["ES2015"], 
+-This changes the way typescript behaves 
+
+Now create 'test' folder inside the 'foodoo_backend' folder
+
+Now create 'auth' folder
+-Inside here, create a 'domain' folder
+    -Inside here create...
+        -'User.ts' 
+        -'IAuthRepository.ts' -interface for our repository since we shall use a  Repository    
+            as an abstraction that sits above our Mongo Database so that our application
+            is not dependent on Mongo itself
+
+
